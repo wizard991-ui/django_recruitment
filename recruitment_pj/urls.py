@@ -21,8 +21,8 @@ from recruitment_app.views import index_view,applicant_view,jobposting_view,empl
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', index_view, name='index_page'),
-    path('/applicant', applicant_view, name='applicant_page'),
-    path('/jobposting', jobposting_view, name='jobposting_page'),
-    path('/employer', employer_view, name='employer_page'),
+    path('applicant/', applicant_view, name='applicant_page'),
+    path('jobposting/', jobposting_view, name='jobposting_page'),
+    path('employer/', employer_view, name='employer_page'),
     
 ]
