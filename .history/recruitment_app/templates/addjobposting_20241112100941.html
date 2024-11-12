@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {%load static%}
+    {%load crispy_forms_tags%}
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>addjobposting</title>
+    <link rel = "stylesheet" href="{% static 'css/bootstrap.min.css'%}">
+</head>
+<body>
+    <h2>WELLCOME JOBPOSTINGS REGISTRATION PAGE</h2>
+        <a href ="{% url 'index_page'%}"> <h3>Home page</h3></a>
+
+        <div class = 'container'>
+            <h2> ADD JOBPOSTINGS </h2>
+            <form method="POST">
+                {% csrf_token %}
+                {{form | crispy}}
+                <input type='submit' class='btn-primary'>
+
+            </form>
+            {% if message %}
+            {{ message }}
+            {% endif %} <br>
+
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                    <th scope="col">Position_Title</th>
+                    <th scope="col">Department</th>
+                    <th scope="col">Vacancies Available</th>
+                    <th scope="col">Posting Date</th>
+                    <th scope="col">Application Deadline</th>
+                    </tr>
+                </thead>
+                {%for jobposting in jobpostings%}
+                <tr>
+                    <td>{jobposting.Position_Title}}</td>
+                    <td>{{.Employer_Email}}</td>
+                    <td>{{employer.Employer_Telephone}}</td>
+                    <td>{{employer.Contact_person}}</td>
+                    <td>{{employer.PO_Box}}</td>
+                    <td>{{employer.Plot_Number}}</td>
+                    <td>{{employer.Street}}</td>
+                    <td>{{employer.City}}</td>  
+                    <td>{{employer.Country}}</td>     
+                </tr>
+                {%endfor%}
+            </table> 
+        </div>
+</body>
+</html>

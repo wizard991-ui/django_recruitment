@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% load static  %}
+    {% load crispy_forms_tags%}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>application</title>
+
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+</head>
+<body>
+    <h2>WELLCOME TO APPLICATION STATUS PAGE</h2>
+        <a href ="{% url 'index_page'%}"> <h3>Home page</h3></a>
+        <div class='container'>
+            <h2>APPLICATION STATUS</h2>
+            <form method="POST">
+                {% csrf_token %}
+                {{form | crispy}}   
+                <input type='submit' class='btn-primary'>
+
+            </form>
+            {% if message %}
+            {{ message }}
+            {% endif %} <br>
+
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                    <th scope="col">Applicant id</th>
+                    <th scope="col">Position id</th>
+                    <th scope="col">Application date</th>
+                    <th scope="col">Application status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {%for application in applicats%}
+                        <tr>
+                            <td>{{applicant.Name}}</td>
+                            <td>{{applicant.Date_Of_Birth}}</td>
+                            <td>{{applicant.Gender}}</td>
+                            <td>{{applicant.Nationality}}</td>
+                            <td>{{applicant.Telephone}}</td>
+                            
+                        </tr>
+                    {%endfor %}
+                </tbody>    
+            </table> 
+        </div>
+</body>
+</html>

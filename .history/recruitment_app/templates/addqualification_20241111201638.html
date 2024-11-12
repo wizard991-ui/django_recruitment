@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+    {%load static%}
+    {%load crispy_forms_tags%}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>qualification</title>
+
+    <link rel='stylesheet' href="{%static 'css/bootstrap.min.css'%}">
+</head>
+<body>
+    <h2> UPPLOAD QUALIFICATIONS </h2>
+        <a href ="{% url 'index_page'%}"> <h3>Home page</h3></a>
+        <div class='container'>    
+            <h2>UPPLOAD YOUR ACADEMIC QUALIFICATIONS</h2>
+            <form method="POST">
+                {% csrf_token %}
+                {{form | crispy}}
+                <input type='submit' class='btn-primary'>
+
+            </form>
+            {% if message %}
+            {{ message }}
+            {% endif %}
+        </div>        
+
+</body>
+</html>

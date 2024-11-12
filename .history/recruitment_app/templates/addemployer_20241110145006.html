@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {%load static%}
+    {%laad crispy_forms_tags%}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>addemployer</title>
+    <link rel= sty
+</head>
+<body>
+    WELLCOME TO APPLICANT REGISTRATION PAGE
+        <a href ="{% url 'index_page'%}"> <h3>Home page</h3></a>
+
+            EMPLOYER REGISTRATION
+            <form method="POST">
+                {% csrf_token %}
+                {{form.as_p}}
+                <input type='submit'>
+
+            </form>
+</body>
+</html>

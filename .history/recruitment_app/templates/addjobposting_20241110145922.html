@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {loaf}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>addjobposting</title>
+</head>
+<body>
+    WELLCOME JOBPOSTINGS REGISTRATION PAGE
+        <a href ="{% url 'index_page'%}"> <h3>Home page</h3></a>
+
+            ADD JOBPOSTINGS
+            <form method="POST">
+                {% csrf_token %}
+                {{form}}
+                <input type='submit'>
+
+            </form>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static  %}
+{% load crispy_forms_tags %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>applicant</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+</head>
+<body>
+    <h2>WELCOME TO APPLICANT REGISTRATION PAGE</h2>
+        <a href ="{% url 'index_page'%}"> <h3>Home page</h3></a>
+            <div class='container'>
+                <h2> APPLICANT REGISTRATION</h2>
+                <form method="POST">
+                {% csrf_token %}
+                {{ form | crispy }}  
+                <input type='submit' class='btn-primary'> 
+                </form>
+                {% if message %}
+                {{ message }}
+                {% endif %} <br>
+
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                        <th scope="col">Name</th>
+                        <th scope="col">Date of Birth</th>
+                        <th scope="col">Gender</th>
+                        <th scope="col">Nationality</th>
+                        <th scope="col">Telephone</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {%for applicant in applicants%}
+                    
+                    
+                    {%end for %}
+
+
+                </table>    
+            </div>    
+</body>
+</html>

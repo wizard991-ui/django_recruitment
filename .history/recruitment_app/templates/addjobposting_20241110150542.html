@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {%load static%}
+    {%load crispy_forms_tags%}
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>addjobposting</title>
+    <link rel = "stylesheet" href="{% static 'css/bootstrap.min.css'%}">
+</head>
+<body>
+    WELLCOME JOBPOSTINGS REGISTRATION PAGE
+        <a href ="{% url 'index_page'%}"> <h3>Home page</h3></a>
+
+            ADD JOBPOSTINGS
+            <form method="POST">
+                {% csrf_token %}
+                {{form.as_p}}
+                <input type='submit'>
+
+            </form>
+</body>
+</html>
